@@ -1,0 +1,20 @@
+package com.dx.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.dx.repository.PostCodeRepository;
+
+public class TestContoller {
+	
+	@Autowired
+	PostCodeRepository codeRepository;
+	
+	@GetMapping("/{pc}")
+	public String getByCode(@PathVariable("pc") String postCode){
+		return codeRepository.findByCodeAllIgnoringCase(postCode);
+	}
+	
+
+}

@@ -1,0 +1,21 @@
+package com.dx.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class PostCode implements Serializable {
+	
+	private static final long serialVersionUID = -697997504234953412L;
+	
+	@Id
+	@GeneratedValue
+	private int id;
+	private String code;
+	private double latitude;
+	private double longitude;
+
+}

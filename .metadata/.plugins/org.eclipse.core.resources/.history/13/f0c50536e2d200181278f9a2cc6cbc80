@@ -1,0 +1,30 @@
+package com.dx.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dx.model.Distance;
+import com.dx.model.PostCode;
+import com.dx.repository.PostCodeRepository;
+
+@RestController
+@RequestMapping("/pcdistance")
+public class TestContoller {
+	
+	@Autowired
+	PostCodeRepository codeRepository;
+	
+	@GetMapping("/{pc1}/{pc2}")
+	public Distance getByCode(@PathVariable("pc1") String pc1String, @PathVariable("pc1") String pc2String){
+		PostCode postCode1 = codeRepository.findByCodeAllIgnoringCase(pc1String);
+		PostCode postCode2 = codeRepository.findByCodeAllIgnoringCase(pc2String);
+		Distance distance = new Distance(postCode1, postCode2);
+		System.out.print("DISTANCE:" + distance);
+		return distance;
+	}
+	
+
+}
