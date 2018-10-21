@@ -2,7 +2,10 @@
 REST service that will return geographic distance between two postal codes in UK
 
 DATABASE: PostgreSQL
---------------- SQL for creating ---------------
+
+SQL for creating
+
+
 CREATE DATABASE ukpostcodes WITH
   OWNER = postgres
   ENCODING = 'UTF8'
@@ -14,16 +17,19 @@ CREATE TABLE postcodelatlng (
   latitude decimal(18,15) NOT NULL,
   longitude decimal(18,15) NOT NULL
 );
-------------------------------------------------
+
+
 INSERTS: https://www.freemaptools.com/download/full-postcodes/ukpostcodesmysql.zip
 CONNECTION CONFIG: ukpostcodes/src/main/resources/application.properties
 
 REST DEMO:
-Without Authentication Example
+
+[Without Authentication Example]
 http://localhost:8080/guest/distance/AB101XG/AB210XS
 ![guest](https://user-images.githubusercontent.com/15386676/47270675-a5876480-d56f-11e8-94d0-5dc8a14feadd.png)
 
-With Authentication Example
+
+[With Authentication Example]
 http://localhost:8080/secure/distance/AB101XG/AB210XS
 ![no credentials](https://user-images.githubusercontent.com/15386676/47270677-b0da9000-d56f-11e8-931b-051770802611.png)
 
