@@ -6,7 +6,7 @@ information:
  - The distance between the two locations (in kilometers)
  - A fixed string 'unit' that has the value "km"
  
-## SQL for creating PostgreSQL  Database
+## Script for creating PostgreSQL Database
     CREATE DATABASE ukpostcodes WITH
     OWNER = postgres
     ENCODING = 'UTF8'
